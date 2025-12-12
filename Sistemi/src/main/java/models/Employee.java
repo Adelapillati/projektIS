@@ -20,8 +20,7 @@ public class Employee {
 		this.unique_code=unique_code;
 		this.full_name=full_name;
 	}
-	
-	//Metodat get dhe set te atributeve te modelit Employee
+		//Metodat get dhe set te atributeve te modelit Employee
 	public long getEmployee_id() {
 		return employee_id;
 	}
@@ -65,4 +64,6 @@ public class Employee {
 	}
 	
 
+
 }
+

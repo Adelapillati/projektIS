@@ -7,12 +7,13 @@ public class Role {
 	private String name;
 	
 	//Konstruktori pa parametra per modelin role
-	public Role() {}
-	//Konstruktori me parametra per modelin role 
-	public Role(long role_id, String name) {
-		this.role_id=role_id;
-		this.name=name;
-	}
+    	public Role() {
+    	}
+    	//Konstruktori me parametra per modelin role
+    	public Role(long role_id, String name) {
+    		this.role_id=role_id;
+    		this.name=name;
+    	}
 	
 	//Metodat get dhe set per atributet e modelit Role
 	public long getRole_id() {

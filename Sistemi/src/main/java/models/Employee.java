@@ -13,8 +13,14 @@ public class Employee {
 	//Konstruktori pa parametra i modelit Employee
 	public Employee() {}
 	//Konstruktori me parametri i modelit Employee
-
-	//Metodat get dhe set te atributeve te modelit Employee
+	public Employee(long employee_id, long role_id, long table_id, long unique_code, String full_name) {
+		this.employee_id=employee_id;
+		this.role_id=role_id;
+		this.table_id=table_id;
+		this.unique_code=unique_code;
+		this.full_name=full_name;
+	}
+		//Metodat get dhe set te atributeve te modelit Employee
 	public long getEmployee_id() {
 		return employee_id;
 	}
@@ -60,3 +66,4 @@ public class Employee {
 
 
 }
+

@@ -22,7 +22,7 @@ public class CustomerFeedbackServiceTest {
 
     @BeforeEach
     void setUp() throws SQLException {
-        // 1) krijo tabelën nëse s’është krijuar
+        // krijo tabelen nese seshte krijuar
         try (Connection conn = DBConnection.getConnection();
              Statement st = conn.createStatement()) {
 
@@ -34,18 +34,9 @@ public class CustomerFeedbackServiceTest {
                     tip_amount BIGINT NOT NULL
                 )
             """);
-
-            // 2) pastro të dhënat para çdo testi
             st.execute("DELETE FROM customer_feedbacks");
         }
-
-        // 3) inicializo DAO + Service
-        // ⚠️ NËSE klasa jote quhet ndryshe, ndrysho vetëm këtë rresht:
-        // p.sh. new JdbcCustomer_FeedbackDao() ose new jdbcCustomer_FeedbackDao()
         Customer_FeedbackDao dao = new dao_package.jdbcCustomer_FeedbackDao();
-        // nëse ti e ke me j të vogël:
-        // Customer_FeedbackDao dao = new dao_package.jdbcCustomer_FeedbackDao();
-
         feedbackService = new Customer_FeedbackService(dao);
     }
 
@@ -102,4 +93,5 @@ public class CustomerFeedbackServiceTest {
         Optional<Customer_Feedback> found = feedbackService.getFeedbackById(created.getFeedback_id());
         assertTrue(found.isEmpty());
     }
+
 }

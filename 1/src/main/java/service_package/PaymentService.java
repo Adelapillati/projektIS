@@ -19,7 +19,7 @@ public class PaymentService {
         if (itemId == null || itemId <= 0) throw new IllegalArgumentException("item_id duhet > 0");
         if (orderId == null || orderId <= 0) throw new IllegalArgumentException("order_id duhet > 0");
         if (quantity == null || quantity <= 0) throw new IllegalArgumentException("quantity duhet > 0");
-        if (unitPrice == null || unitPrice < 0) throw new IllegalArgumentException("unit_price s’mund të jetë negativ");
+        if (unitPrice == null || unitPrice < 0) throw new IllegalArgumentException("unit_price nuk mund te jete negativ");
 
         Payment p = new Payment(0L, itemId, orderId, quantity, unitPrice);
         return paymentDao.create(p);
@@ -43,7 +43,7 @@ public class PaymentService {
         if (itemId == null || itemId <= 0) throw new IllegalArgumentException("item_id duhet > 0");
         if (orderId == null || orderId <= 0) throw new IllegalArgumentException("order_id duhet > 0");
         if (quantity == null || quantity <= 0) throw new IllegalArgumentException("quantity duhet > 0");
-        if (unitPrice == null || unitPrice < 0) throw new IllegalArgumentException("unit_price s’mund të jetë negativ");
+        if (unitPrice == null || unitPrice < 0) throw new IllegalArgumentException("unit_price nuk mund te jete negativ");
 
         p.setItem_id(itemId);
         p.setOrder_id(orderId);
@@ -57,4 +57,5 @@ public class PaymentService {
         if (paymentId == null || paymentId <= 0) throw new IllegalArgumentException("payment_id duhet > 0");
         paymentDao.delete(paymentId);
     }
+
 }

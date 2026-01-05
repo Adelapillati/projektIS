@@ -20,7 +20,6 @@ public class TableServiceTest {
     @BeforeEach
     void setUp() throws SQLException {
 
-        // 1️⃣ Krijo tabelën tables nëse s’ekziston
         try (Connection conn = DBConnection.getConnection();
              Statement st = conn.createStatement()) {
 
@@ -33,7 +32,6 @@ public class TableServiceTest {
                 )
             """);
 
-            // 2️⃣ Pastro të dhënat para çdo testi
             st.execute("DELETE FROM tables");
         }
         tableService = new TableService(new jdbcTableDao());
@@ -54,4 +52,5 @@ public class TableServiceTest {
         tableService.deleteTable(t.getTable_id());
         assertTrue(tableService.getTableById(t.getTable_id()).isEmpty());
     }
+
 }

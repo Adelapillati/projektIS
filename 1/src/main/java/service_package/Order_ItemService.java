@@ -19,7 +19,7 @@ public class Order_ItemService {
         if (itemId == null || itemId <= 0) throw new IllegalArgumentException("item_id duhet > 0");
         if (orderId == null || orderId <= 0) throw new IllegalArgumentException("order_id duhet > 0");
         if (quantity == null || quantity <= 0) throw new IllegalArgumentException("quantity duhet > 0");
-        if (unitPrice == null || unitPrice < 0) throw new IllegalArgumentException("unit_price s’mund të jetë negativ");
+        if (unitPrice == null || unitPrice < 0) throw new IllegalArgumentException("unit_price mund te jete negativ");
 
         Order_Item oi = new Order_Item(0L, itemId, orderId, quantity, unitPrice);
         return orderItemDao.create(oi);
@@ -48,7 +48,7 @@ public class Order_ItemService {
         if (itemId == null || itemId <= 0) throw new IllegalArgumentException("item_id duhet > 0");
         if (orderId == null || orderId <= 0) throw new IllegalArgumentException("order_id duhet > 0");
         if (quantity == null || quantity <= 0) throw new IllegalArgumentException("quantity duhet > 0");
-        if (unitPrice == null || unitPrice < 0) throw new IllegalArgumentException("unit_price s’mund të jetë negativ");
+        if (unitPrice == null || unitPrice < 0) throw new IllegalArgumentException("unit_price nuk mund te jete negativ");
 
         oi.setItem_id(itemId);
         oi.setOrder_id(orderId);
@@ -62,4 +62,5 @@ public class Order_ItemService {
         if (orderItemId == null || orderItemId <= 0) throw new IllegalArgumentException("order_item_id duhet > 0");
         orderItemDao.delete(orderItemId);
     }
+
 }

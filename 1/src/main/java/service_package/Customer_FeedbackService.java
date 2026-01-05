@@ -17,13 +17,13 @@ public class Customer_FeedbackService {
 
     public Customer_Feedback createFeedback(Long invoiceId, Integer rate, Long tipAmount) throws SQLException {
         if (invoiceId == null || invoiceId <= 0) {
-            throw new IllegalArgumentException("Invoice ID duhet të jetë > 0");
+            throw new IllegalArgumentException("Invoice ID duhet te jete > 0");
         }
         if (rate == null || rate < 1 || rate > 5) {
-            throw new IllegalArgumentException("Rate duhet të jetë nga 1 deri në 5");
+            throw new IllegalArgumentException("Rate duhet te jete nga 1 deri ne 5");
         }
         if (tipAmount == null || tipAmount < 0) {
-            throw new IllegalArgumentException("Tip amount nuk mund të jetë negativ");
+            throw new IllegalArgumentException("Tip amount nuk mund te jete negativ");
         }
 
         Customer_Feedback feedback = new Customer_Feedback(0L, invoiceId, rate, tipAmount);
@@ -32,7 +32,7 @@ public class Customer_FeedbackService {
 
     public Optional<Customer_Feedback> getFeedbackById(Long feedbackId) throws SQLException {
         if (feedbackId == null || feedbackId <= 0) {
-            throw new IllegalArgumentException("Feedback ID duhet të jetë > 0");
+            throw new IllegalArgumentException("Feedback ID duhet te jete > 0");
         }
         return feedbackDao.findById(feedbackId);
     }
@@ -43,7 +43,7 @@ public class Customer_FeedbackService {
 
     public Customer_Feedback updateFeedback(Long feedbackId, Long invoiceId, Integer rate, Long tipAmount) throws SQLException {
         if (feedbackId == null || feedbackId <= 0) {
-            throw new IllegalArgumentException("Feedback ID duhet të jetë > 0");
+            throw new IllegalArgumentException("Feedback ID duhet te jete > 0");
         }
 
         Optional<Customer_Feedback> existing = feedbackDao.findById(feedbackId);
@@ -52,13 +52,13 @@ public class Customer_FeedbackService {
         }
 
         if (invoiceId == null || invoiceId <= 0) {
-            throw new IllegalArgumentException("Invoice ID duhet të jetë > 0");
+            throw new IllegalArgumentException("Invoice ID duhet te jete > 0");
         }
         if (rate == null || rate < 1 || rate > 5) {
-            throw new IllegalArgumentException("Rate duhet të jetë nga 1 deri në 5");
+            throw new IllegalArgumentException("Rate duhet të jete nga 1 deri ne 5");
         }
         if (tipAmount == null || tipAmount < 0) {
-            throw new IllegalArgumentException("Tip amount nuk mund të jetë negativ");
+            throw new IllegalArgumentException("Tip amount nuk mund te jete negativ");
         }
 
         Customer_Feedback feedback = existing.get();
@@ -71,8 +71,9 @@ public class Customer_FeedbackService {
 
     public void deleteFeedback(Long feedbackId) throws SQLException {
         if (feedbackId == null || feedbackId <= 0) {
-            throw new IllegalArgumentException("Feedback ID duhet të jetë > 0");
+            throw new IllegalArgumentException("Feedback ID duhet te jete > 0");
         }
         feedbackDao.delete(feedbackId);
     }
+
 }

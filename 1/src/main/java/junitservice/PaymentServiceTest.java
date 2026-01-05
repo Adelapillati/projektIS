@@ -20,7 +20,6 @@ public class PaymentServiceTest {
     @BeforeEach
     void setUp() throws SQLException {
 
-        // 1️⃣ Krijo tabelën payments nëse s’ekziston
         try (Connection conn = DBConnection.getConnection();
              Statement st = conn.createStatement()) {
 
@@ -34,7 +33,6 @@ public class PaymentServiceTest {
                 )
             """);
 
-            // 2️⃣ Pastro të dhënat para çdo testi
             st.execute("DELETE FROM payments");
         }
         
@@ -53,4 +51,5 @@ public class PaymentServiceTest {
         paymentService.deletePayment(p.getPayment_id());
         assertTrue(paymentService.getPaymentById(p.getPayment_id()).isEmpty());
     }
+
 }

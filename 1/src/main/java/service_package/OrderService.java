@@ -18,7 +18,7 @@ public class OrderService {
     public Order createOrder(Long tableId, Long waiterId, Boolean status, Float discountPercentage) throws SQLException {
         if (tableId == null || tableId <= 0) throw new IllegalArgumentException("table_id duhet > 0");
         if (waiterId == null || waiterId <= 0) throw new IllegalArgumentException("waiter_id duhet > 0");
-        if (status == null) throw new IllegalArgumentException("status nuk mund të jetë null");
+        if (status == null) throw new IllegalArgumentException("status nuk mund te jete null");
         if (discountPercentage == null || discountPercentage < 0 || discountPercentage > 100)
             throw new IllegalArgumentException("discount_percentage duhet 0..100");
 
@@ -44,7 +44,7 @@ public class OrderService {
 
         if (tableId == null || tableId <= 0) throw new IllegalArgumentException("table_id duhet > 0");
         if (waiterId == null || waiterId <= 0) throw new IllegalArgumentException("waiter_id duhet > 0");
-        if (status == null) throw new IllegalArgumentException("status nuk mund të jetë null");
+        if (status == null) throw new IllegalArgumentException("status nuk mund te jete null");
         if (discountPercentage == null || discountPercentage < 0 || discountPercentage > 100)
             throw new IllegalArgumentException("discount_percentage duhet 0..100");
 
@@ -60,4 +60,5 @@ public class OrderService {
         if (orderId == null || orderId <= 0) throw new IllegalArgumentException("order_id duhet > 0");
         orderDao.delete(orderId);
     }
+
 }

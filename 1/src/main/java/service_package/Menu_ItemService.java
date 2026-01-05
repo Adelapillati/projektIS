@@ -17,8 +17,8 @@ public class Menu_ItemService {
 
     public Menu_Item createMenuItem(Long menuId, String itemName, Long itemPrice) throws SQLException {
         if (menuId == null || menuId <= 0) throw new IllegalArgumentException("menu_id duhet > 0");
-        if (itemName == null || itemName.isBlank()) throw new IllegalArgumentException("item_name nuk mund të jetë bosh");
-        if (itemPrice == null || itemPrice < 0) throw new IllegalArgumentException("item_price s’mund të jetë negativ");
+        if (itemName == null || itemName.isBlank()) throw new IllegalArgumentException("item_name nuk mund te jete bosh");
+        if (itemPrice == null || itemPrice < 0) throw new IllegalArgumentException("item_price nuk mund te jete negativ");
 
         Menu_Item item = new Menu_Item(0L, menuId, itemName, itemPrice);
         return menuItemDao.create(item);
@@ -40,8 +40,8 @@ public class Menu_ItemService {
                 .orElseThrow(() -> new IllegalArgumentException("Menu_Item me id " + itemId + " nuk u gjet"));
 
         if (menuId == null || menuId <= 0) throw new IllegalArgumentException("menu_id duhet > 0");
-        if (itemName == null || itemName.isBlank()) throw new IllegalArgumentException("item_name nuk mund të jetë bosh");
-        if (itemPrice == null || itemPrice < 0) throw new IllegalArgumentException("item_price s’mund të jetë negativ");
+        if (itemName == null || itemName.isBlank()) throw new IllegalArgumentException("item_name nuk mund te jete bosh");
+        if (itemPrice == null || itemPrice < 0) throw new IllegalArgumentException("item_price nuk mund te jete negativ");
 
         item.setMenu_id(menuId);
         item.setItem_name(itemName);
@@ -54,4 +54,5 @@ public class Menu_ItemService {
         if (itemId == null || itemId <= 0) throw new IllegalArgumentException("item_id duhet > 0");
         menuItemDao.delete(itemId);
     }
+
 }

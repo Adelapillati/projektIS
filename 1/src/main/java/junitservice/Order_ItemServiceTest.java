@@ -1,6 +1,6 @@
 package junitservice;
 
-import dao_package.jdbcOrder_ItemDao; // ndrysho nëse klasa jote quhet ndryshe
+import dao_package.jdbcOrder_ItemDao; 
 import dbpackage.DBConnection;
 import pacakge_modelet.Order_Item;
 import service_package.Order_ItemService;
@@ -20,7 +20,6 @@ public class Order_ItemServiceTest {
     @BeforeEach
     void setUp() throws SQLException {
 
-        // 1️⃣ Krijo tabelën order_items nëse s’ekziston
         try (Connection conn = DBConnection.getConnection();
              Statement st = conn.createStatement()) {
 
@@ -34,7 +33,6 @@ public class Order_ItemServiceTest {
                 )
             """);
 
-            // 2️⃣ Pastro të dhënat para çdo testi
             st.execute("DELETE FROM order_items");
         }
  
@@ -55,4 +53,5 @@ public class Order_ItemServiceTest {
         orderItemService.deleteOrderItem(oi.getOrder_item_id());
         assertTrue(orderItemService.getOrderItemById(oi.getOrder_item_id()).isEmpty());
     }
+
 }

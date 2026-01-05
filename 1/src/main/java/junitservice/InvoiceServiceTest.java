@@ -20,8 +20,8 @@ public class InvoiceServiceTest {
     @BeforeEach
     void setUp() throws SQLException {
 
-            // 1️⃣ Krijo tabelën invoices nëse s’ekziston
-            try (Connection conn = DBConnection.getConnection();
+//Krijimi i tabeles invoice nqs nuk ekziston
+        try (Connection conn = DBConnection.getConnection();
                  Statement st = conn.createStatement()) {
 
                 st.execute("""
@@ -32,8 +32,6 @@ public class InvoiceServiceTest {
                         date VARCHAR(50) NOT NULL
                     )
                 """);
-
-                // 2️⃣ Pastro të dhënat para çdo testi
                 st.execute("DELETE FROM invoices");
             }
         invoiceService = new InvoiceService(new jdbcInvoiceDao());
@@ -50,4 +48,5 @@ public class InvoiceServiceTest {
         invoiceService.deleteInvoice(inv.getInvoice_id());
         assertTrue(invoiceService.getInvoiceById(inv.getInvoice_id()).isEmpty());
     }
+
 }

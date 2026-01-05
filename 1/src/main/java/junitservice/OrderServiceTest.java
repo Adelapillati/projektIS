@@ -20,7 +20,6 @@ public class OrderServiceTest {
     @BeforeEach
     void setUp() throws SQLException {
 
-        // 1️⃣ Krijo tabelën orders nëse s’ekziston
         try (Connection conn = DBConnection.getConnection();
              Statement st = conn.createStatement()) {
 
@@ -34,7 +33,6 @@ public class OrderServiceTest {
                 )
             """);
 
-            // 2️⃣ Pastro të dhënat para çdo testi
             st.execute("DELETE FROM orders");
         }
         orderService = new OrderService(new jdbcOrderDao());
@@ -54,4 +52,5 @@ public class OrderServiceTest {
         orderService.deleteOrder(o.getOrder_id());
         assertTrue(orderService.getOrderById(o.getOrder_id()).isEmpty());
     }
+
 }

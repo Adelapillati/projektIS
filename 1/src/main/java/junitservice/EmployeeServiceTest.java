@@ -19,7 +19,7 @@ public class EmployeeServiceTest {
 
     @BeforeEach
     void setUp() throws SQLException {
-    	 // 1️⃣ Krijo tabelën employees nëse s’ekziston
+    	 // Krijimi i tabeles employee nese nuk ekziston
         try (Connection conn = DBConnection.getConnection();
              Statement st = conn.createStatement()) {
 
@@ -33,8 +33,6 @@ public class EmployeeServiceTest {
                     full_name VARCHAR(255) NOT NULL
                 )
             """);
-
-            // 2️⃣ Pastro të dhënat para çdo testi
             st.execute("DELETE FROM employees");
         employeeService = new EmployeeService(new jdbcEmployeeDao());
     }
@@ -54,4 +52,5 @@ public class EmployeeServiceTest {
         employeeService.deleteEmployee(e.getEmployee_id());
         assertTrue(employeeService.getEmployeeById(e.getEmployee_id()).isEmpty());
     }
+
 }

@@ -20,7 +20,7 @@ public class EmployeeService {
         if (zoneId == null || zoneId <= 0) throw new IllegalArgumentException("zone_id duhet > 0");
         if (tableId == null || tableId <= 0) throw new IllegalArgumentException("table_id duhet > 0");
         if (uniqueCode == null || uniqueCode <= 0) throw new IllegalArgumentException("unique_code duhet > 0");
-        if (fullName == null || fullName.isBlank()) throw new IllegalArgumentException("full_name nuk mund të jetë bosh");
+        if (fullName == null || fullName.isBlank()) throw new IllegalArgumentException("full_name nuk mund te jete bosh");
 
         Employee e = new Employee();
         e.setRole_id(roleId);
@@ -71,4 +71,5 @@ public class EmployeeService {
         if (employeeId == null || employeeId <= 0) throw new IllegalArgumentException("employee_id duhet > 0");
         employeeDao.delete(employeeId);
     }
+
 }

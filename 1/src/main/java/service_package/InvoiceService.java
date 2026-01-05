@@ -17,8 +17,8 @@ public class InvoiceService {
 
     public Invoice createInvoice(Long orderId, String fiscalCode, String date) throws SQLException {
         if (orderId == null || orderId <= 0) throw new IllegalArgumentException("order_id duhet > 0");
-        if (fiscalCode == null || fiscalCode.isBlank()) throw new IllegalArgumentException("fiscal_code nuk mund të jetë bosh");
-        if (date == null || date.isBlank()) throw new IllegalArgumentException("date nuk mund të jetë bosh");
+        if (fiscalCode == null || fiscalCode.isBlank()) throw new IllegalArgumentException("fiscal_code nuk mund te jete bosh");
+        if (date == null || date.isBlank()) throw new IllegalArgumentException("date nuk mund te jete bosh");
 
         Invoice inv = new Invoice(0L, orderId, fiscalCode, date);
         return invoiceDao.create(inv);
@@ -40,8 +40,8 @@ public class InvoiceService {
                 .orElseThrow(() -> new IllegalArgumentException("Invoice me id " + invoiceId + " nuk u gjet"));
 
         if (orderId == null || orderId <= 0) throw new IllegalArgumentException("order_id duhet > 0");
-        if (fiscalCode == null || fiscalCode.isBlank()) throw new IllegalArgumentException("fiscal_code nuk mund të jetë bosh");
-        if (date == null || date.isBlank()) throw new IllegalArgumentException("date nuk mund të jetë bosh");
+        if (fiscalCode == null || fiscalCode.isBlank()) throw new IllegalArgumentException("fiscal_code nuk mund te jete bosh");
+        if (date == null || date.isBlank()) throw new IllegalArgumentException("date nuk mund te jete bosh");
 
         inv.setOrder_id(orderId);
         inv.setFiscal_code(fiscalCode);
@@ -54,4 +54,5 @@ public class InvoiceService {
         if (invoiceId == null || invoiceId <= 0) throw new IllegalArgumentException("invoice_id duhet > 0");
         invoiceDao.delete(invoiceId);
     }
+
 }

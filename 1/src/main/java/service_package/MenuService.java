@@ -16,7 +16,7 @@ public class MenuService {
     }
 
     public Menu createMenu(String menuType) throws SQLException {
-        if (menuType == null || menuType.isBlank()) throw new IllegalArgumentException("menu_type nuk mund të jetë bosh");
+        if (menuType == null || menuType.isBlank()) throw new IllegalArgumentException("menu_type nuk mund te jete bosh");
 
         Menu m = new Menu(0L, menuType);
         return menuDao.create(m);
@@ -37,7 +37,7 @@ public class MenuService {
         Menu m = menuDao.findById(menuId)
                 .orElseThrow(() -> new IllegalArgumentException("Menu me id " + menuId + " nuk u gjet"));
 
-        if (menuType == null || menuType.isBlank()) throw new IllegalArgumentException("menu_type nuk mund të jetë bosh");
+        if (menuType == null || menuType.isBlank()) throw new IllegalArgumentException("menu_type nuk mund te jete bosh");
 
         m.setMenu_type(menuType);
         return menuDao.update(m);
@@ -47,4 +47,5 @@ public class MenuService {
         if (menuId == null || menuId <= 0) throw new IllegalArgumentException("menu_id duhet > 0");
         menuDao.delete(menuId);
     }
+
 }

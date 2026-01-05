@@ -16,8 +16,8 @@ public class Location_Service {
     }
 
     public Location createLocation(String name, String address) throws SQLException {
-        if (name == null || name.isBlank()) throw new IllegalArgumentException("location_name nuk mund të jetë bosh");
-        if (address == null || address.isBlank()) throw new IllegalArgumentException("location_address nuk mund të jetë bosh");
+        if (name == null || name.isBlank()) throw new IllegalArgumentException("location_name nuk mund te jete bosh");
+        if (address == null || address.isBlank()) throw new IllegalArgumentException("location_address nuk mund te jete bosh");
 
         Location l = new Location(0L, name, address);
         return locationDao.create(l);
@@ -38,11 +38,11 @@ public class Location_Service {
         Location l = locationDao.findById(locationId)
                 .orElseThrow(() -> new IllegalArgumentException("Location me id " + locationId + " nuk u gjet"));
 
-        if (name == null || name.isBlank()) throw new IllegalArgumentException("location_name nuk mund të jetë bosh");
-        if (address == null || address.isBlank()) throw new IllegalArgumentException("location_address nuk mund të jetë bosh");
+        if (name == null || name.isBlank()) throw new IllegalArgumentException("location_name nuk mund te jete bosh");
+        if (address == null || address.isBlank()) throw new IllegalArgumentException("location_address nuk mund te jete bosh");
 
         l.setLocation_name(name);
-        l.setLocation_adress(address); // vëreni: modeli yt e ka setLocation_adress
+        l.setLocation_adress(address); 
         return locationDao.update(l);
     }
 
@@ -50,4 +50,5 @@ public class Location_Service {
         if (locationId == null || locationId <= 0) throw new IllegalArgumentException("location_id duhet > 0");
         locationDao.delete(locationId);
     }
+
 }

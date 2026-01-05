@@ -17,7 +17,7 @@ public class ZoneService {
 
     public Zone createZone(Long locationId, String zoneName) throws SQLException {
         if (locationId == null || locationId <= 0) throw new IllegalArgumentException("location_id duhet > 0");
-        if (zoneName == null || zoneName.isBlank()) throw new IllegalArgumentException("zone_name nuk mund të jetë bosh");
+        if (zoneName == null || zoneName.isBlank()) throw new IllegalArgumentException("zone_name nuk mund te jete bosh");
 
         Zone z = new Zone(0L, locationId, zoneName);
         return zoneDao.create(z);
@@ -44,7 +44,7 @@ public class ZoneService {
                 .orElseThrow(() -> new IllegalArgumentException("Zone me id " + zoneId + " nuk u gjet"));
 
         if (locationId == null || locationId <= 0) throw new IllegalArgumentException("location_id duhet > 0");
-        if (zoneName == null || zoneName.isBlank()) throw new IllegalArgumentException("zone_name nuk mund të jetë bosh");
+        if (zoneName == null || zoneName.isBlank()) throw new IllegalArgumentException("zone_name nuk mund te jete bosh");
 
         z.setLocation_id(locationId);
         z.setZone_name(zoneName);
@@ -56,4 +56,5 @@ public class ZoneService {
         if (zoneId == null || zoneId <= 0) throw new IllegalArgumentException("zone_id duhet > 0");
         zoneDao.delete(zoneId);
     }
+
 }

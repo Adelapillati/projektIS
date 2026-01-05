@@ -20,7 +20,6 @@ public class Menu_ItemServiceTest {
     @BeforeEach
     void setUp() throws SQLException {
 
-        // 1️⃣ Krijo tabelën menu_items (ose menu_items / menu_items - sipas DB tënde)
         try (Connection conn = DBConnection.getConnection();
              Statement st = conn.createStatement()) {
 
@@ -33,7 +32,6 @@ public class Menu_ItemServiceTest {
                 )
             """);
 
-            // 2️⃣ Pastro të dhënat para çdo testi
             st.execute("DELETE FROM menu_items");
         }
         itemService = new Menu_ItemService(new jdbcMenu_ItemDao());
@@ -54,4 +52,5 @@ public class Menu_ItemServiceTest {
         itemService.deleteMenuItem(it.getItem_id());
         assertTrue(itemService.getMenuItemById(it.getItem_id()).isEmpty());
     }
+
 }

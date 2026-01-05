@@ -20,7 +20,6 @@ public class MenuServiceTest {
     @BeforeEach
     void setUp() throws SQLException {
 
-        // 1️⃣ Krijo tabelën menus nëse s’ekziston
         try (Connection conn = DBConnection.getConnection();
              Statement st = conn.createStatement()) {
 
@@ -31,7 +30,6 @@ public class MenuServiceTest {
                 )
             """);
 
-            // 2️⃣ Pastro të dhënat para çdo testi
             st.execute("DELETE FROM menus");
         }
         
@@ -49,4 +47,5 @@ public class MenuServiceTest {
         menuService.deleteMenu(m.getMenu_id());
         assertTrue(menuService.getMenuById(m.getMenu_id()).isEmpty());
     }
+
 }

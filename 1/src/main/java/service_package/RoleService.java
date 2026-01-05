@@ -16,7 +16,7 @@ public class RoleService {
     }
 
     public Role createRole(String name) throws SQLException {
-        if (name == null || name.isBlank()) throw new IllegalArgumentException("name nuk mund të jetë bosh");
+        if (name == null || name.isBlank()) throw new IllegalArgumentException("name nuk mund te jete bosh");
 
         Role r = new Role(0L, name);
         return roleDao.create(r);
@@ -37,7 +37,7 @@ public class RoleService {
         Role r = roleDao.findById(roleId)
                 .orElseThrow(() -> new IllegalArgumentException("Role me id " + roleId + " nuk u gjet"));
 
-        if (name == null || name.isBlank()) throw new IllegalArgumentException("name nuk mund të jetë bosh");
+        if (name == null || name.isBlank()) throw new IllegalArgumentException("name nuk mund te jete bosh");
 
         r.setName(name);
         return roleDao.update(r);
@@ -47,4 +47,5 @@ public class RoleService {
         if (roleId == null || roleId <= 0) throw new IllegalArgumentException("role_id duhet > 0");
         roleDao.delete(roleId);
     }
+
 }

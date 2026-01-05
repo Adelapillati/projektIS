@@ -20,8 +20,6 @@ public class RoleServiceTest {
 
     @BeforeEach
     void setUp() throws SQLException {
-
-        // 1️⃣ Krijo tabelën roles nëse s’ekziston
         try (Connection conn = DBConnection.getConnection();
              Statement st = conn.createStatement()) {
 
@@ -32,7 +30,6 @@ public class RoleServiceTest {
                 )
             """);
 
-            // 2️⃣ Pastro të dhënat para çdo testi
             st.execute("DELETE FROM roles");
         roleService = new RoleService(new jdbcRoleDao());
     }
@@ -49,4 +46,5 @@ public class RoleServiceTest {
         Optional<Role> found = roleService.getRoleById(r.getRole_id());
         assertTrue(found.isEmpty());
     }
+
 }

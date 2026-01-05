@@ -17,7 +17,7 @@ public class TableService {
 
     public Table createTable(Long zoneId, Boolean status, Integer seats) throws SQLException {
         if (zoneId == null || zoneId <= 0) throw new IllegalArgumentException("zone_id duhet > 0");
-        if (status == null) throw new IllegalArgumentException("status nuk mund të jetë null");
+        if (status == null) throw new IllegalArgumentException("status nuk mund te jete null");
         if (seats == null || seats <= 0) throw new IllegalArgumentException("seats duhet > 0");
 
         Table t = new Table(0L, zoneId, status, seats);
@@ -45,7 +45,7 @@ public class TableService {
                 .orElseThrow(() -> new IllegalArgumentException("Table me id " + tableId + " nuk u gjet"));
 
         if (zoneId == null || zoneId <= 0) throw new IllegalArgumentException("zone_id duhet > 0");
-        if (status == null) throw new IllegalArgumentException("status nuk mund të jetë null");
+        if (status == null) throw new IllegalArgumentException("status nuk mund te jete null");
         if (seats == null || seats <= 0) throw new IllegalArgumentException("seats duhet > 0");
 
         t.setZone_id(zoneId);
@@ -59,4 +59,5 @@ public class TableService {
         if (tableId == null || tableId <= 0) throw new IllegalArgumentException("table_id duhet > 0");
         tableDao.delete(tableId);
     }
+
 }

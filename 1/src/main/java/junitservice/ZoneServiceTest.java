@@ -19,8 +19,6 @@ public class ZoneServiceTest {
 
     @BeforeEach
     void setUp() throws SQLException {
-
-        // 1️⃣ Krijo tabelën zones nëse s’ekziston
         try (Connection conn = DBConnection.getConnection();
              Statement st = conn.createStatement()) {
 
@@ -31,8 +29,6 @@ public class ZoneServiceTest {
                     zone_name VARCHAR(255) NOT NULL
                 )
             """);
-
-            // 2️⃣ Pastro të dhënat para çdo testi
             st.execute("DELETE FROM zones");
         }
         zoneService = new ZoneService(new jdbcZoneDao());
@@ -51,4 +47,5 @@ public class ZoneServiceTest {
         zoneService.deleteZone(z.getZone_id());
         assertTrue(zoneService.getZoneById(z.getZone_id()).isEmpty());
     }
+
 }

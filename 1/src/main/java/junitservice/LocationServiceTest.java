@@ -20,7 +20,7 @@ public class LocationServiceTest {
     @BeforeEach
     void setUp() throws SQLException {
     	
-            // 1️⃣ Krijo tabelën locations nëse s’ekziston
+           //Krijimi i tabeles Location nqs nuk ekziston.
             try (Connection conn = DBConnection.getConnection();
                  Statement st = conn.createStatement()) {
 
@@ -31,8 +31,6 @@ public class LocationServiceTest {
                         location_address VARCHAR(255) NOT NULL
                     )
                 """);
-
-                // 2️⃣ Pastro të dhënat para çdo testi
                 st.execute("DELETE FROM locations");
             }
         locationService = new Location_Service(new jdbcLocationDao());
@@ -49,4 +47,5 @@ public class LocationServiceTest {
         locationService.deleteLocation(l.getLocation_id());
         assertTrue(locationService.getLocationById(l.getLocation_id()).isEmpty());
     }
+
 }
